@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+  api:
+    container_name: ddproxy-api
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: ddproxy-api
+    depends_on:
+      - cache
+    ports:
+      - 3001:3001
+    environment:
+      NODE_ENV: production
+      APP_ID: default
+      APP_LIMIT: 100000
+      SERVER_PORT: 3001
+      DADATA_TOKEN: ComeAndGetYourOwnToken
+      REDIS_OPTIONS_URL: redis://:eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81@cache:6379
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      REDIS_EXPIRE: 60
+      REDIS_EXPIRE_INN: 2592000
+      REDIS_EXPIRE_EMPTY: 86400
+    links:
+      - cache
+    volumes:
+      - ./:/src
+volumes:
+  cache:
+    driver: local

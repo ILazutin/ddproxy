@@ -48,7 +48,8 @@ function ddQuery(url, data) {
                 'Accept': 'application/json',
                 'Authorization': 'Token ' + token
             },
-            json: data
+            json: data,
+            forever: true
         }, (error, response, body) => {
             if(error) {
                 console.log('Dadata request error', error);
