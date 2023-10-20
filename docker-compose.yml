@@ -29,7 +29,7 @@ services:
       REDIS_HOST: cache
       REDIS_PORT: 6379
       REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-      REDIS_EXPIRE: 60
+      REDIS_EXPIRE: 2592000
       REDIS_EXPIRE_INN: 2592000
       REDIS_EXPIRE_EMPTY: 86400
     links:
