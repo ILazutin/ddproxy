@@ -26,6 +26,7 @@ services:
       SERVER_PORT: 3001
       DADATA_BASEURL: https://suggestions.dadata.ru
       DADATA_TOKEN: ComeAndGetYourOwnToken
+      DADATA_SECRET_KEY: ComeAndGetYourOwnSecretKey
       REDIS_OPTIONS_URL: redis://:eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81@cache:6379
       REDIS_HOST: cache
       REDIS_PORT: 6379

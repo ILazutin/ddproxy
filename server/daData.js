@@ -38,7 +38,7 @@ function checkLimit(date) {
 }
 
 function ddQuery(url, data) {
-    const { daData: { baseUrl, token } } = config;
+    const { daData: { baseUrl, token, secretKey } } = config;
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
@@ -46,7 +46,8 @@ function ddQuery(url, data) {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'Token ' + token
+                'Authorization': 'Token ' + token,
+                'X-Secret': secretKey
             },
             json: data,
             forever: true

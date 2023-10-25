@@ -6,6 +6,7 @@ const {
     SERVER_PORT, 
     DADATA_BASEURL, 
     DADATA_TOKEN, 
+    DADATA_SECRET_KEY,
     REDIS_OPTIONS_URL, 
     REDIS_EXPIRE, 
     REDIS_EXPIRE_INN, 
@@ -25,6 +26,7 @@ module.exports = {
     daData: {
         baseUrl: DADATA_BASEURL || 'https://suggestions.dadata.ru',
         token: DADATA_TOKEN || 'MySuperSecretToken',
+        secretKey: DADATA_SECRET_KEY || 'MySecretKey',
     },
     redis: {
         // https://github.com/NodeRedis/node_redis#rediscreateclient
