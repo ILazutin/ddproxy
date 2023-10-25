@@ -78,9 +78,6 @@ module.exports.query = function(url, data) {
     const keyFn = urlMap[url] && urlMap[url].additionalKey;
     const queryDate = getDate();
  
-    if(!data.query) {
-        throw new Error('No query in data');
-    }
     return new Promise((resolve, reject) => {
         redis.get(key, (err, result) => {
             if (err) {
