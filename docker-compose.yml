@@ -24,6 +24,7 @@ services:
       APP_ID: default
       APP_LIMIT: 100000
       SERVER_PORT: 3001
+      DADATA_BASEURL: https://suggestions.dadata.ru
       DADATA_TOKEN: ComeAndGetYourOwnToken
       REDIS_OPTIONS_URL: redis://:eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81@cache:6379
       REDIS_HOST: cache
